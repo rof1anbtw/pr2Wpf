@@ -1,0 +1,22 @@
+﻿<Window x:Class="Pr2Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ежедневник" Height="350" Width="613">
+    <Grid Width="550" HorizontalAlignment="Center">
+        <DatePicker Name="datePicker" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" SelectedDate="{Binding SelectedDate}" DisplayDateStart="{Binding MinDate}" DisplayDateEnd="{Binding MaxDate}" Width="110" />
+        <Button Content="Add Note" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="170,12,0,0" Click="AddNote_Click" />
+        <ListView Name="noteListView" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,40,0,0" Height="200" Width="530">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Title" Width="150" DisplayMemberBinding="{Binding Title}" />
+                    <GridViewColumn Header="Description" Width="250" DisplayMemberBinding="{Binding Description}" />
+                    <GridViewColumn Header="Date" Width="100" DisplayMemberBinding="{Binding Date}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="titleTextBox"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,250,0,0" Width="150" />
+        <TextBox x:Name="descriptionTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="170,250,0,0" Width="250" />
+        <Button Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="430,250,0,0" Click="SaveNote_Click" />
+        <Button Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="370,10,0,0" Click="DeleteNote_Click" />
+    </Grid>
+</Window>
